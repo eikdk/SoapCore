@@ -98,6 +98,9 @@ namespace SoapCore.Tests.Serialization
 
 			_sampleServiceClients[SoapSerializer.XmlSerializer] = serviceClientXml;
 			_sampleServiceClients[SoapSerializer.DataContractSerializer] = serviceClientDc;
+#if ASPNET_50
+			_host.Dispose();
+#endif
 		}
 
 		public Mock<TService> ServiceMock { get; private set; }
@@ -117,7 +120,14 @@ namespace SoapCore.Tests.Serialization
 
 		public void Dispose()
 		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		protected virtual void Dispose(bool disposing)
+		{
 			_host.StopAsync();
+			_host.Dispose();
 		}
 	}
 }

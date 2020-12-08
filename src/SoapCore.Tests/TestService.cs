@@ -8,9 +8,10 @@ using SoapCore.Tests.Model;
 
 namespace SoapCore.Tests
 {
-	public class TestService : ITestService
+	public class TestService : ITestService, IDisposable
 	{
 		private ThreadLocal<string> _pingResultValue = new ThreadLocal<string>() { Value = string.Empty };
+		private bool _disposedValue;
 
 		public string Ping(string s)
 		{
@@ -172,6 +173,28 @@ namespace SoapCore.Tests
 			}
 
 			return value;
+		}
+
+		public void Dispose()
+		{
+			// Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+			Dispose(disposing: true);
+			GC.SuppressFinalize(this);
+		}
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if (!_disposedValue)
+			{
+				if (disposing)
+				{
+					_pingResultValue.Dispose();
+				}
+
+				// TODO: free unmanaged resources (unmanaged objects) and override finalizer
+				// TODO: set large fields to null
+				_disposedValue = true;
+			}
 		}
 	}
 }
