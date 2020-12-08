@@ -191,8 +191,6 @@ namespace SoapCore.Tests
 					_pingResultValue.Dispose();
 				}
 
-				// TODO: free unmanaged resources (unmanaged objects) and override finalizer
-				// TODO: set large fields to null
 				_disposedValue = true;
 			}
 		}

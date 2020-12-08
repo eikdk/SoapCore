@@ -10,21 +10,9 @@
 		<WarningsAsErrors />
 	</PropertyGroup>
 
-	<!--
-	<PropertyGroup Condition="$(TargetFramework) == 'netstandard2.0'">
-		<DefineConstants>ASPNET_21</DefineConstants>
-	</PropertyGroup>
-	-->
-
 	<PropertyGroup Condition="$(TargetFramework) == 'netcoreapp2.1'">
 		<DefineConstants>ASPNET_21</DefineConstants>
 	</PropertyGroup>
-
-<!--
-	<PropertyGroup Condition="$(TargetFramework) == 'netcoreapp3.0'">
-		<DefineConstants>ASPNET_30</DefineConstants>
-	</PropertyGroup>
--->
 
 	<PropertyGroup Condition="$(TargetFramework) == 'netcoreapp3.1'">
 		<DefineConstants>ASPNET_30</DefineConstants>
@@ -41,20 +29,6 @@
 	<ItemGroup>
 		<AdditionalFiles Include="stylecop.json" />
 	</ItemGroup>
-
-	<!--
-	<ItemGroup Condition="$(TargetFramework) =='net461'">
-		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.1.0" />
-		<PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.1.0" />
-	</ItemGroup>
-
-	<ItemGroup Condition="$(TargetFramework) =='netstandard2.0'">
-		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.1.0" />
-		<PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.1.0" />
-	</ItemGroup>
-	-->
 
 	<ItemGroup Condition="$(TargetFramework) =='netcoreapp2.1'">
 		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
