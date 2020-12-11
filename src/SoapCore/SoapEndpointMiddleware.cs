@@ -185,7 +185,7 @@ namespace SoapCore
 			responseMessage = new MetaMessage(responseMessage, _service, _binding, _xmlNamespaceManager);
 
 			//we should use text/xml in wsdl page for browser compability.
-			httpContext.Response.ContentType = "text/xml;charset=UTF-8";// _messageEncoders[0].ContentType;
+			httpContext.Response.ContentType = "text/xml;charset=UTF-8"; // _messageEncoders[0].ContentType;
 
 			await WriteMessageAsync(_messageEncoders[0], responseMessage, httpContext);
 		}
@@ -219,8 +219,8 @@ namespace SoapCore
 				}
 			}
 
-			Message requestMessage;
 			//Get the message
+			Message requestMessage;
 			try
 			{
 				requestMessage = await ReadMessageAsync(httpContext, messageEncoder);
@@ -230,6 +230,7 @@ namespace SoapCore
 				await WriteErrorResponseMessage(ex, StatusCodes.Status500InternalServerError, serviceProvider, null, messageEncoder, httpContext);
 				return;
 			}
+
 			var messageFilters = serviceProvider.GetServices<IMessageFilter>().ToArray();
 			var asyncMessageFilters = serviceProvider.GetServices<IAsyncMessageFilter>().ToArray();
 
@@ -390,7 +391,6 @@ namespace SoapCore
 					NamespaceManager = _xmlNamespaceManager
 				};
 				responseMessage = customMessage;
-				//responseMessage.Message = responseMessage;
 				responseMessage.Headers.Action = operation.ReplyAction;
 				responseMessage.Headers.RelatesTo = requestMessage.Headers.MessageId;
 				responseMessage.Headers.To = requestMessage.Headers.ReplyTo?.Uri;

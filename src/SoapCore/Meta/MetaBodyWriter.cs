@@ -525,6 +525,7 @@ namespace SoapCore.Meta
 					writer.WriteAttributeString("message", $"tns:{BindingType}_{operation.Name}_OutputMessage");
 					writer.WriteEndElement(); // wsdl:output
 				}
+
 				writer.WriteEndElement(); // wsdl:operation
 			}
 
@@ -809,8 +810,7 @@ namespace SoapCore.Meta
 			else if (typeInfo.IsEnum || underlyingType?.IsEnum == true
 				|| (typeInfo.IsValueType && typeInfo.Namespace != null && (typeInfo.Namespace == "System" || typeInfo.Namespace.StartsWith("System.")))
 				|| (type.Name == "String")
-				|| (type.Name == "Byte[]")
-				)
+				|| (type.Name == "Byte[]"))
 			{
 				XmlQualifiedName xsTypename;
 				if (typeof(DateTimeOffset).IsAssignableFrom(type))
@@ -892,6 +892,7 @@ namespace SoapCore.Meta
 				{
 					writer.WriteAttributeString("maxOccurs", "1");
 				}
+
 				if (type == typeof(Stream) || typeof(Stream).IsAssignableFrom(type))
 				{
 					name = "StreamBody";
@@ -987,7 +988,7 @@ namespace SoapCore.Meta
 		{
 			if (!_requestedDynamicTypes.TryGetValue(dynamicType.TypeName, out var elementsList))
 			{
-				var elementsMap = new Dictionary<string, string> { { dynamicType.ChildElementName, "" } };
+				var elementsMap = new Dictionary<string, string> { { dynamicType.ChildElementName, string.Empty } };
 				_requestedDynamicTypes.Add(dynamicType.TypeName, elementsMap);
 				return;
 			}

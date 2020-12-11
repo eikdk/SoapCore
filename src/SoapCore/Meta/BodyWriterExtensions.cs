@@ -37,6 +37,7 @@ namespace SoapCore.Meta
 				{
 					schema.Write(memoryStream);
 				}
+
 				memoryStream.Position = 0;
 
 				var streamReader = new StreamReader(memoryStream);
@@ -58,6 +59,7 @@ namespace SoapCore.Meta
 				{
 					schema.Namespaces = xmlNamespaceManager.Convert();
 				}
+
 				if (xmlSchemaProviderAttribute.IsAny)
 				{
 					//MetaWCFBodyWriter usage....

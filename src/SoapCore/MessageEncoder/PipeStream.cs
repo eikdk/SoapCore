@@ -17,10 +17,6 @@ namespace SoapCore.MessageEncoder
 	/// Wraps a <see cref="PipeReader"/> and/or <see cref="PipeWriter"/> as a <see cref="Stream"/> for
 	/// easier interop with existing APIs.
 	/// </summary>
-	/// <summary>
-	/// Wraps a <see cref="PipeReader"/> and/or <see cref="PipeWriter"/> as a <see cref="Stream"/> for
-	/// easier interop with existing APIs.
-	/// </summary>
 	internal partial class PipeStream : Stream, IDisposableObservable
 	{
 		/// <summary>
@@ -292,6 +288,7 @@ namespace SoapCore.MessageEncoder
 				{
 					_reader.Complete();
 				}
+
 				_readingCompleted = true;
 			}
 
