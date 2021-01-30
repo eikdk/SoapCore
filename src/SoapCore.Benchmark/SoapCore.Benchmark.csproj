@@ -4,6 +4,8 @@
 		<OutputType>Exe</OutputType>
 		<TargetFrameworks>netcoreapp2.1;netcoreapp3.1;net5.0</TargetFrameworks>
 		<CodeAnalysisRuleSet>..\SoapCore.ruleset</CodeAnalysisRuleSet>
+		<NoWin32Manifest>true</NoWin32Manifest>
+		<LangVersion>8</LangVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="$(TargetFramework) == 'netcoreapp2.1'">
