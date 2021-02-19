@@ -182,6 +182,11 @@ namespace SoapCore.Tests
 			GC.SuppressFinalize(this);
 		}
 
+		public string EmpryBody(EmptyMembers members)
+		{
+			throw new NotImplementedException();
+		}
+
 		protected virtual void Dispose(bool disposing)
 		{
 			if (!_disposedValue)

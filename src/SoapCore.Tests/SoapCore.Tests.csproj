@@ -38,12 +38,12 @@
 
 	<ItemGroup Condition="$(TargetFramework) == 'netcoreapp3.1'">
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
-		<PackageReference Include="Microsoft.AspNetCore.TestHost" Version="3.1.10" />
+		<PackageReference Include="Microsoft.AspNetCore.TestHost" Version="3.1.12" />
 	</ItemGroup>
 
 	<ItemGroup Condition="$(TargetFramework) == 'net5.0'">
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
-		<PackageReference Include="Microsoft.AspNetCore.TestHost" Version="5.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.TestHost" Version="5.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -55,9 +55,9 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="System.ServiceModel.Http" Version="4.8.0" />
-		<PackageReference Include="Moq" Version="4.15.2" />
-		<PackageReference Include="Shouldly" Version="4.0.1" />
+		<PackageReference Include="System.ServiceModel.Http" Version="4.8.1" />
+		<PackageReference Include="Moq" Version="4.16.0" />
+		<PackageReference Include="Shouldly" Version="4.0.3" />
 		<PackageReference Include="xunit" Version="2.4.1" />
 		<PackageReference Include="xunit.runner.console" Version="2.4.1">
 			<PrivateAssets>all</PrivateAssets>

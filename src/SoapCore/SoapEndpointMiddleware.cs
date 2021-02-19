@@ -287,7 +287,8 @@ namespace SoapCore
 			// GetReaderAtBodyContents must not be called twice in one request
 			using (var reader = requestMessage.GetReaderAtBodyContents())
 			{
-				var soapAction = HeadersHelper.GetSoapAction(httpContext, requestMessage, reader);
+				//var soapAction = HeadersHelper.GetSoapAction(httpContext, requestMessage, reader);
+				var soapAction = HeadersHelper.GetSoapAction(httpContext, reader);
 				requestMessage.Headers.Action = soapAction;
 				var operation = _service.Operations.FirstOrDefault(o => o.SoapAction.Equals(soapAction, StringComparison.Ordinal) || o.Name.Equals(soapAction, StringComparison.Ordinal));
 				if (operation == null)
@@ -596,11 +597,7 @@ namespace SoapCore
 							var reader = requestMessage.Headers.GetReaderAtHeader(i);
 
 							var value = _serializerHelper.DeserializeInputParameter(
-								reader, member.MemberInfo.GetPropertyOrFieldType(),
-								member.MessageHeaderMemberAttribute.Name ?? member.MemberInfo.Name,
-								member.MessageHeaderMemberAttribute.Namespace ?? @namespace,
-								member.MemberInfo,
-								serviceKnownTypes);
+								reader, member.MemberInfo.GetPropertyOrFieldType(), member.MessageHeaderMemberAttribute.Name ?? member.MemberInfo.Name, member.MessageHeaderMemberAttribute.Namespace ?? @namespace, member.MemberInfo,	serviceKnownTypes);
 
 							member.MemberInfo.SetValueToPropertyOrField(wrapperObject, value);
 						}

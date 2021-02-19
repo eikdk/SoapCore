@@ -115,7 +115,15 @@ namespace SoapCore.Tests.RequestArgumentsOrder
 
 		public void Dispose()
 		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		//public void Dispose()
+		protected virtual void Dispose(bool disposing)
+		{
 			_host.StopAsync();
+			_host.Dispose();
 		}
 
 		private Dictionary<SoapSerializer, TService> InitClients<TService>(BasicHttpBinding binding, string address)

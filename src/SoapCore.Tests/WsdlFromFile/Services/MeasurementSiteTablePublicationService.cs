@@ -15,15 +15,16 @@ namespace SoapCore.Tests.WsdlFromFile.Services
         public pullSnapshotDataResponse pullSnapshotData(pullSnapshotDataRequest request)
         {
             var response = new pullSnapshotDataResponse();
+			/*
             try
             {
                //todo
             }
-            catch (System.Exception ex)
+            catch //(System.Exception ex)
             {
-				throw ex;
+				//throw ex;
 			}
-
+			*/
             return response;
         }
 
